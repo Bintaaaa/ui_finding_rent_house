@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_bwa_koskos/pages/home_page.dart';
 import 'package:ui_bwa_koskos/theme/color.dart';
 import 'package:ui_bwa_koskos/theme/font.dart';
 
@@ -58,7 +59,12 @@ class SplashPage extends StatelessWidget {
                     height: 50,
                     child: RaisedButton(
                       onPressed: () {
-
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context)=> HomePage()
+                          )
+                        );
                       },
                       color: purpleColor,
                       shape: RoundedRectangleBorder(

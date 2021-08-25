@@ -26,3 +26,5 @@ TextStyle regularTextStyle = GoogleFonts.poppins(
   fontWeight: FontWeight.w400,
   color: blackColor,
 );
+
+double edge = 24;
