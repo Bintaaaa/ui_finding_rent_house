@@ -3,8 +3,6 @@ import 'package:ui_bwa_koskos/theme/color.dart';
 import 'package:ui_bwa_koskos/theme/font.dart';
 
 class CityCard extends StatelessWidget {
-  const CityCard({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return ClipRRect(

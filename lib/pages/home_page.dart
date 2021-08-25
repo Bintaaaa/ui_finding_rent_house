@@ -3,7 +3,6 @@ import 'package:ui_bwa_koskos/theme/font.dart';
 import 'package:ui_bwa_koskos/widgets/city_card.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -67,9 +66,17 @@ class HomePage extends StatelessWidget {
                       width: 24,
                     ),
                     CityCard(),
+                    SizedBox(
+                      width: 20,
+                    ),
                     CityCard(),
+                    SizedBox(
+                      width: 20,
+                    ),
                     CityCard(),
-                    CityCard(),
+                    SizedBox(
+                      width: 20,
+                    ),
                   ],
                 ),
               )
