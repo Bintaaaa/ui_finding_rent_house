@@ -2,19 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ui_bwa_koskos/theme/color.dart';
 
-var blackText = GoogleFonts.poppins(
+TextStyle blackTextStyle = GoogleFonts.poppins(
   fontWeight: FontWeight.w500,
   color: blackColor,
 );
-var whiteText = GoogleFonts.poppins(
+
+TextStyle whiteTextStyle = GoogleFonts.poppins(
   fontWeight: FontWeight.w500,
   color: whiteColor,
 );
-var greyText = GoogleFonts.poppins(
+
+TextStyle greyTextStyle = GoogleFonts.poppins(
   fontWeight: FontWeight.w300,
-  color: greyText,
+  color: greyColor,
 );
-var purpleText = GoogleFonts.poppins(
+
+TextStyle purpleTextStyle = GoogleFonts.poppins(
   fontWeight: FontWeight.w500,
-  color: purpleText,
+  color: purpleColor,
+);
+
+TextStyle regularTextStyle = GoogleFonts.poppins(
+  fontWeight: FontWeight.w400,
+  color: blackColor,
 );
