@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_bwa_koskos/model/city.dart';
+import 'package:ui_bwa_koskos/pages/space_card.dart';
 import 'package:ui_bwa_koskos/theme/font.dart';
 import 'package:ui_bwa_koskos/widgets/city_card.dart';
 
@@ -34,6 +35,11 @@ class HomePage extends StatelessWidget {
                   padding: EdgeInsets.only(
                 left: edge
               ),
+
+
+                // NOTE: TITLE/HEADER
+
+
                 child: Text(
                   "Mencari kosan yang cozy",
                   style: greyTextStyle.copyWith(
@@ -58,6 +64,10 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 16,
               ),
+
+
+              //NOTE: Popular Cities
+
               Container(
                 height: 150,
                 child: ListView(
@@ -81,15 +91,30 @@ class HomePage extends StatelessWidget {
                     CityCard(
                       City(1,"Surabaya","assets/city3.png",false),
                     ),
-                    SizedBox(
-                      width: 20,
-                    ),
                   ],
                 ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              //  NOTE : Recomanded Space
+              Padding(
+                padding: EdgeInsets.only(left: edge),
+                child: Text(
+                  "Recommended Space",
+                  style: blackTextStyle.copyWith(
+                      fontSize: 18
+                  ),
+                ),
+              ),
+              Column(
+                children: [
+                  SpaceCard()
+                ],
               )
             ],
           ),
-        )
+        ),
       )
     );
   }
