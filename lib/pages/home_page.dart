@@ -4,6 +4,7 @@ import 'package:ui_bwa_koskos/model/space.dart';
 import 'package:ui_bwa_koskos/pages/space_card.dart';
 import 'package:ui_bwa_koskos/theme/font.dart';
 import 'package:ui_bwa_koskos/widgets/city_card.dart';
+import 'package:ui_bwa_koskos/widgets/tips_card.dart';
 
 class HomePage extends StatelessWidget {
 
@@ -19,8 +20,8 @@ class HomePage extends StatelessWidget {
           child: ListView(
             children: [
               Padding(
-                padding: EdgeInsets.only(
-                  left: edge
+                padding: EdgeInsets.symmetric(
+                  horizontal: edge
                 ),
                 child: Text(
                     "Explore Now",
@@ -123,6 +124,40 @@ class HomePage extends StatelessWidget {
                       Space(3,"Kosan Mas Oji","assets/space3.png",5,212,"Teluk Jambe","Indonesia")
                   ),
                 ],
+              ),
+              SizedBox(
+                height: 30,
+              ),
+
+
+              //NOTE : Tips and Guidance
+              Padding(
+                padding: EdgeInsets.only(
+                  left: edge,
+                ),
+                child: Text(
+                  "Tips & Guidance",
+                  style: blackTextStyle.copyWith(
+                    fontSize: 18
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: edge,
+                ),
+                child: Column(
+                  children: [
+                    TipsCard(),
+                    SizedBox(
+                      height: 28,
+                    ),
+                    TipsCard()
+                  ],
+                )
               )
             ],
           ),
