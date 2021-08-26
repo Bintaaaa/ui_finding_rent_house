@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_bwa_koskos/model/city.dart';
 import 'package:ui_bwa_koskos/theme/font.dart';
 import 'package:ui_bwa_koskos/widgets/city_card.dart';
 
@@ -65,15 +66,21 @@ class HomePage extends StatelessWidget {
                     SizedBox(
                       width: 24,
                     ),
-                    CityCard(),
+                    CityCard(
+                      City(1,"Jakarta","assets/city1.png",false),
+                    ),
                     SizedBox(
                       width: 20,
                     ),
-                    CityCard(),
+                    CityCard(
+                      City(1,"Bandung","assets/city2.png",true),
+                    ),
                     SizedBox(
                       width: 20,
                     ),
-                    CityCard(),
+                    CityCard(
+                      City(1,"Surabaya","assets/city3.png",false),
+                    ),
                     SizedBox(
                       width: 20,
                     ),

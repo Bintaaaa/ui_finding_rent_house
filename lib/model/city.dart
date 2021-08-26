@@ -2,12 +2,12 @@ class City{
   int id;
   String name;
   String imageUrl;
-
-  City(this.id, this.name,this.imageUrl);
+  bool isFav;
+  City(this.id, this.name,this.imageUrl,this.isFav);
 }
 
 List <City> cardCity =
-      cityData.map((item)=>City(item['id'], item['name'], item['imageUrl']))
+      cityData.map((item)=>City(item['id'], item['name'], item['imageUrl'],item['isFav']))
               .toList();
 
 var cityData = [
