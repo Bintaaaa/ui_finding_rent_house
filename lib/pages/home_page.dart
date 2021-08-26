@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_bwa_koskos/model/city.dart';
+import 'package:ui_bwa_koskos/model/space.dart';
 import 'package:ui_bwa_koskos/pages/space_card.dart';
 import 'package:ui_bwa_koskos/theme/font.dart';
 import 'package:ui_bwa_koskos/widgets/city_card.dart';
@@ -10,7 +11,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        bottom: false,
+
         child: Padding(
           padding: EdgeInsets.symmetric(
             vertical: edge
@@ -107,9 +108,20 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 16,
+              ),
               Column(
                 children: [
-                  SpaceCard()
+                  SpaceCard(
+                    Space(1,"Kuretakeso Hott","assets/space1.png",4,52,"Bandung","Indonesia")
+                  ),
+                  SpaceCard(
+                      Space(2,"Rumah Nenek","assets/space2.png",4,102,"Kejora","Indonesia")
+                  ),
+                  SpaceCard(
+                      Space(3,"Kosan Mas Oji","assets/space3.png",5,212,"Teluk Jambe","Indonesia")
+                  ),
                 ],
               )
             ],
