@@ -1,19 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:ui_bwa_koskos/pages/error_page.dart';
 import 'package:ui_bwa_koskos/theme/color.dart';
 import 'package:ui_bwa_koskos/theme/font.dart';
 import 'package:ui_bwa_koskos/widgets/facility_item.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DetailPage extends StatelessWidget {
-  launchUrl(String url) async{
-    if( await canLaunch(url)){
-      launch(url);
-    }else{
-      throw(url);
-    }
-  }
+
   @override
   Widget build(BuildContext context) {
+    launchUrl(String url) async {
+      if (await canLaunch(url)) {
+        launch(url);
+      } else {
+        // throw (url);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ErrorPage(),
+          ),
+        );
+      }
+    }
     return Scaffold(
       backgroundColor: whiteColor,
       body: SafeArea(
@@ -244,7 +252,7 @@ class DetailPage extends StatelessWidget {
                             ),
                             InkWell(
                               onTap: (){
-                                launchUrl('https://tanpabatasgroup.com/links');
+                                launchUrl('htsdfasdoupsdfinks');
                               },
                               child: Image.asset(
                                 "assets/btn_map.png",
@@ -318,3 +326,4 @@ class DetailPage extends StatelessWidget {
     );
   }
 }
+
