@@ -3,6 +3,7 @@ import 'package:ui_bwa_koskos/model/city.dart';
 import 'package:ui_bwa_koskos/model/guidance.dart';
 import 'package:ui_bwa_koskos/model/space.dart';
 import 'package:ui_bwa_koskos/pages/space_card.dart';
+import 'package:ui_bwa_koskos/theme/color.dart';
 import 'package:ui_bwa_koskos/theme/font.dart';
 import 'package:ui_bwa_koskos/widgets/bottom_navbar_item.dart';
 import 'package:ui_bwa_koskos/widgets/city_card.dart';
@@ -15,6 +16,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: whiteColor,
       body: SafeArea(
         child: ListView(
           children: [
