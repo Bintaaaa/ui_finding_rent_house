@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:ui_bwa_koskos/model/guidance.dart';
 import 'package:ui_bwa_koskos/theme/color.dart';
 import 'package:ui_bwa_koskos/theme/font.dart';
 
 class TipsCard extends StatelessWidget {
+  final Guidance guidance;
+  TipsCard(this.guidance);
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Image.asset(
-          "assets/tips1.png",
+          guidance.imgUrl,
           width: 80,
         ),
         SizedBox(
@@ -18,7 +21,7 @@ class TipsCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-             "City Guidesline",
+             guidance.title,
               style: blackTextStyle.copyWith(
                 fontSize: 18,
               ),
@@ -27,7 +30,7 @@ class TipsCard extends StatelessWidget {
               height: 4,
             ),
             Text(
-              'Updated',
+              guidance.status,
               style: greyTextStyle,
             ),
           ],
