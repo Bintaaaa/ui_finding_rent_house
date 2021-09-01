@@ -2,7 +2,7 @@
     package="com.example.ui_bwa_koskos">
    <application
         android:label="ui_bwa_koskos"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
