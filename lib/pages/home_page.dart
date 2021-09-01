@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:ui_bwa_koskos/model/city.dart';
 import 'package:ui_bwa_koskos/model/guidance.dart';
 import 'package:ui_bwa_koskos/model/space.dart';
 import 'package:ui_bwa_koskos/pages/space_card.dart';
+import 'package:ui_bwa_koskos/providers/space_provider.dart';
 import 'package:ui_bwa_koskos/theme/color.dart';
 import 'package:ui_bwa_koskos/theme/font.dart';
 import 'package:ui_bwa_koskos/widgets/bottom_navbar_item.dart';
@@ -15,6 +17,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    var spaceProvider = Provider.of<SpaceProvider>(context);
+
+
     return Scaffold(
       backgroundColor: whiteColor,
       body: SafeArea(
@@ -116,19 +122,34 @@ class HomePage extends StatelessWidget {
             SizedBox(
               height: 16,
             ),
-            Column(
-              children: [
-                SpaceCard(
-                  Space(1,"Kuretakeso Hott","assets/space1.png",4,52,"Bandung","Indonesia")
-                ),
-                SpaceCard(
-                    Space(2,"Rumah Nenek","assets/space2.png",4,102,"Kejora","Indonesia")
-                ),
-                SpaceCard(
-                    Space(3,"Kosan Mas Oji","assets/space3.png",5,212,"Teluk Jambe","Indonesia")
-                ),
-              ],
+
+            //NOTE RECOMENDED SPACES
+            FutureBuilder(
+              future: spaceProvider.getRecommendedSpaces(),
+                builder: (context,snapShot){
+                  if (snapShot.hasData) {
+                    List<Space> data = snapShot.data;
+
+                    int index = 0;
+
+                    return Column(
+                      children: data.map((item) {
+                        index++;
+                        return Container(
+                          margin: EdgeInsets.only(
+                            top: index == 1 ? 0 : 1,
+                          ),
+                          child: SpaceCard(item),
+                        );
+                      }).toList(),
+                    );
+                  }
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
             ),
+
             SizedBox(
               height: 30,
             ),
