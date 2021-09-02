@@ -8,9 +8,16 @@ import 'package:ui_bwa_koskos/widgets/facility_item.dart';
 import 'package:ui_bwa_koskos/widgets/rating_item.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends StatefulWidget {
   final Space space;
   DetailPage(this.space);
+  @override
+  _DetailPageState createState() => _DetailPageState();
+}
+
+class _DetailPageState extends State<DetailPage> {
+  bool isLike = false;
+
   @override
   Widget build(BuildContext context) {
     launchUrl(String url) async {
@@ -33,7 +40,7 @@ class DetailPage extends StatelessWidget {
         child: Stack(
           children: [
             Image.network(
-                space.imageUrl,
+                widget.space.imageUrl,
               width: MediaQuery.of(context).size.width,
               height: 350,
               fit: BoxFit.cover,
@@ -67,7 +74,7 @@ class DetailPage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                    space.name,
+                                    widget.space.name,
                                   style: blackTextStyle.copyWith(
                                     fontSize: 22
                                   ),
@@ -77,7 +84,7 @@ class DetailPage extends StatelessWidget {
                                 ),
                                 Text.rich(
                                   TextSpan(
-                                      text: "\$${space.price}",
+                                      text: "\$${widget.space.price}",
                                       style: purpleTextStyle.copyWith(
                                           fontSize: 14
                                       ),
@@ -101,7 +108,7 @@ class DetailPage extends StatelessWidget {
                                   ),
                                   child: RatingItem(
                                     index: index,
-                                    rating: space.rating,
+                                    rating: widget.space.rating,
                                   ),
                                 );
                               }).toList(),
@@ -134,17 +141,17 @@ class DetailPage extends StatelessWidget {
                              FacilitiesItem(
                                name: "Kitchen",
                                iconUrl: "assets/icon_kitchen.png",
-                               total: space.numberOfKitchens,
+                               total: widget.space.numberOfKitchens,
                              ),
                              FacilitiesItem(
                                name: "Bedroom",
                                iconUrl: "assets/icon_bedroom.png",
-                               total: space.numberOfBedrooms,
+                               total: widget.space.numberOfBedrooms,
                              ),
                              FacilitiesItem(
                                name: "Assets",
                                iconUrl: "assets/icon_cupboard.png",
-                               total: space.numberOfCupboards,
+                               total: widget.space.numberOfCupboards,
                              )
                            ],
                         ),
@@ -171,7 +178,7 @@ class DetailPage extends StatelessWidget {
                         height: 88,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
-                          children: space.photos.map((item) {
+                          children: widget.space.photos.map((item) {
                             return Container(
                               margin: EdgeInsets.only(left: 24),
                               child: ClipRRect(
@@ -212,12 +219,12 @@ class DetailPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "${space.address}\n${space.country}",
+                              "${widget.space.address}\n${widget.space.country}",
                               style: greyTextStyle,
                             ),
                             InkWell(
                               onTap: (){
-                                launchUrl(space.mapUrl);
+                                launchUrl(widget.space.mapUrl);
                               },
                               child: Image.asset(
                                 "assets/btn_map.png",
@@ -238,7 +245,7 @@ class DetailPage extends StatelessWidget {
                         width: MediaQuery.of(context).size.width - (2*edge),
                         child: RaisedButton(
                           onPressed: (){
-                            launchUrl('tel://${space.phone}');
+                            launchUrl('tel://${widget.space.phone}');
                           },
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(17),
@@ -277,9 +284,16 @@ class DetailPage extends StatelessWidget {
                       width: 40,
                     ),
                   ),
-                  Image.asset(
-                    "assets/btn_wishlist.png",
-                    width: 40,
+                  InkWell(
+                    onTap: (){
+                      setState(() {
+                        isLike = !isLike;
+                      });
+                    },
+                    child: Image.asset(
+                      isLike ? "assets/btn_wishlist_active.png" : "assets/btn_wishlist.png",
+                      width: 40,
+                    ),
                   ),
                 ],
               ),
